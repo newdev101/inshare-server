@@ -56,7 +56,9 @@ router.post('/',(req,res)=>{
      // Response -> link
 })
 
-router.get('/send',async(req,res)=>{
+
+
+router.post('/send',async(req,res)=>{
      const { uuid, emailTo, emailFrom }= req.body;
      if(!uuid || !emailTo || !emailFrom){
           return res.status(422).send({error:"all fields are required"});

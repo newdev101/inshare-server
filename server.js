@@ -15,7 +15,7 @@ const corsOptions={
      origin: process.env.ALLOWED_CLIENTS.split(','),
      // ["http://localhost:3000"]
 }
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 
 //view enginee
@@ -31,6 +31,9 @@ connectDB();
 app.use('/api/files', require('./routes/files'));
 app.use('/files', require('./routes/show.js'));
 app.use('/files/download',require('./routes/download.js'))
+app.get('/',(req,res)=>{
+     return res.render('home');
+})
 
 
 //
