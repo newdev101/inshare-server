@@ -1,13 +1,20 @@
 const express = require('express');
 const app = express();
 const path = require('path')
-
+const cors = require('cors')
 
 //middleware
 // app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
+//cors
+const corsOptions={
+     origin: process.env.ALLOWED_CLIENTS.split(','),
+     // ["http://localhost:3000"]
+}
+app.use(cors(corsOptions));
+
 
 //view enginee
 app.set("view engine", "ejs");
